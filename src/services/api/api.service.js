@@ -30,4 +30,18 @@ export class Api {
 
     return response
   }
+
+  /**
+   * @private
+   * @description - retorna informações da sidebar
+   * @returns {Object} - informações da sidebar
+   */
+  async _getSidebar() {
+    const api = this.url
+    const response = await fetch('/sidebar')
+      .then(response => response.json())
+      .catch(err => console.error('Erro: ', err))
+
+    return response
+  }
 }
