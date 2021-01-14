@@ -16,4 +16,18 @@ export class Api {
 
     return response
   }
+
+  /**
+   * @private
+   * @description - retorna informações da timeline
+   * @returns {Object} - informações da timeline
+   */
+  async _getTimeline() {
+    const api = this.url
+    const response = await fetch('/timeline')
+      .then(response => response.json())
+      .catch(err => console.error('Erro: ', err))
+
+    return response
+  }
 }
