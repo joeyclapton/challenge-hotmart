@@ -24,7 +24,7 @@ export class Api {
    */
   async _getTimeline() {
     const api = this.url
-    const response = await fetch('/timeline')
+    const response = await fetch(`${api}/timeline`)
       .then(response => response.json())
       .catch(err => console.error('Erro: ', err))
 
@@ -38,7 +38,7 @@ export class Api {
    */
   async _getSidebar() {
     const api = this.url
-    const response = await fetch('/sidebar')
+    const response = await fetch(`${api}/sidebar`)
       .then(response => response.json())
       .catch(err => console.error('Erro: ', err))
 
@@ -62,7 +62,7 @@ export class Api {
     const api = this.url
     const data = arguments[0]
 
-    const response = await fetch('/expense/add', {
+    const response = await fetch(`${api}/expense/add`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
