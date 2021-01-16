@@ -71,6 +71,7 @@ export default {
 .hot-refound {
   background-image: linear-gradient(to right, #00d7ce 3%, #00c5fc);
   border-radius: 12px;
+  height: fit-content;
   padding: 16px 48px;
   margin: 32px;
 }
