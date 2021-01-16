@@ -42,6 +42,7 @@ export default {
   data() {
     return {
       header: null,
+      timeline: null,
     }
   },
   mounted() {
@@ -52,14 +53,14 @@ export default {
       const api = new Api({
         url: 'https://api-front-end-challenge.buildstaging.com/api',
       })
-
+      this.timeline = await api._getTimeline()
       this.header = await api._getHeader()
     },
   },
 }
 </script>
 
-<style>
+<style lang="scss">
 * {
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
