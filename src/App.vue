@@ -3,6 +3,7 @@
   <main class="main">
     <section class="sidebar"></section>
     <section class="quick-ops">
+      <div class="breadcrumbs"></div>
       <hot-refound-component
         v-if="header"
         v-bind:id="header.id"
@@ -74,5 +75,10 @@ html {
 }
 .quick-ops {
   width: calc(100% - 220px);
+}
+.breadcrumbs {
+  background-color: #f0f3f7;
+  height: 48px;
+  width: 100%;
 }
 </style>
