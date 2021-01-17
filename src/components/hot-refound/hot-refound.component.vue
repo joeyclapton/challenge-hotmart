@@ -1,5 +1,5 @@
 <template>
-  <div class="hot-refound">
+  <div class="hot-refound-component">
     <header class="header">
       <h2 class="header__title">Reembolso #{{ id }}</h2>
     </header>
@@ -40,10 +40,12 @@
       </ol>
       <div class="divider"></div>
       <ol class="list">
-        <p>Centro de custo</p>
-        <li class="list__item" v-for="item in costCenters" :key="item.id">
-          <span class="list__item-info">{{ item.percentage }}%</span>
-          <span class="list__item-info">{{ item.reviser.name }}</span>
+        <p class="list__title">Centro de custo</p>
+        <li class="list__item" v-for="cost in costCenters" :key="cost.id">
+          <span class="list__item-info list__item-info--reset-margin"
+            >{{ cost.percentage }}%
+          </span>
+          <span class="list__item-info">{{ cost.reviser.name }}</span>
         </li>
       </ol>
     </section>
@@ -67,40 +69,55 @@ export default {
 }
 </script>
 
-<style scoped>
-.hot-refound {
-  background-image: linear-gradient(to right, #00d7ce 3%, #00c5fc);
-  border-radius: 12px;
-  height: fit-content;
-  padding: 16px 48px;
-  margin: 32px;
-}
-.header__title {
-  color: #ffffff;
-  font-size: 20px;
-}
-.list__container {
-  display: flex;
-  justify-content: space-between;
-}
-.list {
-  list-style: none;
-  padding: 0;
-}
-.list__item {
-  margin: 6px 0;
-}
-.list__item-label {
-  color: #ffffff;
-  display: inline-block;
-  font-size: 14px;
-  min-width: 120px;
-  text-align: left;
-}
-.list__item-info {
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.71;
-}
+<style lang="sass">
+.hot-refound-component
+  background-image: linear-gradient(to right, #00d7ce 3%, #00c5fc)
+  border-radius: 12px
+  height: fit-content
+  padding: 24px 48px
+  margin: 32px
+
+  .header
+    &__title
+      color: #ffffff
+      font-size: 20px
+
+  .divider
+    background-color: #ffffff
+    width: 1px
+
+  .list__container
+    display: flex
+    justify-content: space-between
+    margin-top: 32px
+
+    .list
+      list-style: none
+      padding: 0
+      width: 45%
+
+      &__title
+        font-size: 14px
+        color: #ffffff
+
+
+      &__item
+        margin: 6px 0
+
+      &__item-label
+        color: #ffffff
+        display: inline-block
+        font-size: 14px
+        min-width: 120px
+        text-align: right
+
+      &__item-info
+        color: #ffffff
+        font-size: 14px
+        font-weight: 600
+        line-height: 1.71
+        margin-left: 24px
+
+        &--reset-margin
+          margin: 0
 </style>
