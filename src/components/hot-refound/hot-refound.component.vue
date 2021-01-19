@@ -2,6 +2,7 @@
   <div class="hot-refound-component">
     <header class="header">
       <h2 class="header__title">Reembolso #{{ id }}</h2>
+      <i class="fas fa-edit"></i>
     </header>
 
     <section class="list__container">
@@ -78,6 +79,16 @@ export default {
   margin: 32px
 
   .header
+    position: relative
+
+    .fa-edit
+      color: #ffffff
+      cursor: not-allowed
+      position: absolute
+      right: -36px
+      top: -12px
+
+
     &__title
       color: #ffffff
       font-size: 20px
