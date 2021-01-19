@@ -50,29 +50,20 @@ export class Api {
    * @description - retorna informações da sidebar
    * @returns {Object} - informações da sidebar
    */
-  async addExpense({
-    expenseTypeCode,
-    currencyCode,
-    amountSpent,
-    amountTotal,
-    notes,
-    resourceUrl,
-    cardDate,
-  }) {
+  async addExpense(extract = {}) {
     const api = this.url
-    const data = arguments[0]
-
     const response = await fetch(`${api}/expense/add`, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-      body: data,
+      body: extract,
     })
       .then(response => response.json())
       .catch(err => console.error('Erro: ', err))
 
+    console.log(response)
     return response
   }
 }
