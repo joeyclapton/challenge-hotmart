@@ -3,7 +3,7 @@
     <header class="header">
       <p class="header__title">Saldo</p>
       <p class="header__value">
-        <span>ARS 0,00</span>
+        <span>{{ currencySymbol }} 0,00</span>
       </p>
     </header>
     <div class="divider"></div>
@@ -14,7 +14,7 @@
         </div>
         <div>
           <p class="cash__wrapper-label">Gastou</p>
-          <p class="cash__wrapper-value">ARS 0,00</p>
+          <p class="cash__wrapper-value">{{ currencySymbol }} 0,00</p>
         </div>
       </div>
       <div class="cash__wrapper">
@@ -23,12 +23,12 @@
         </div>
         <div>
           <p class="cash__wrapper-label">Recebeu</p>
-          <p class="cash__wrapper-value">ARS 0,00</p>
+          <p class="cash__wrapper-value">{{ currencySymbol }} 0,00</p>
         </div>
       </div>
     </div>
+    <p class="table__title">Extrato</p>
     <table class="table">
-      <p class="table__title">Extrato</p>
       <thead>
         <tr>
           <td>Descrição</td>
@@ -38,7 +38,7 @@
       <tbody>
         <tr class="">
           <th>Despesas declaradas</th>
-          <th>ARS 123.213,21</th>
+          <th>{{ currencySymbol }} {{ declared }}</th>
         </tr>
         <tr class="">
           <td>Despesas declaradas pelo trooper</td>
@@ -46,7 +46,7 @@
         </tr>
         <tr class="">
           <th>Despesas aprovadas</th>
-          <th>ARS 0,00</th>
+          <th>{{ currencySymbol }} {{ approved }},00</th>
         </tr>
         <tr class="">
           <td>Despesas aprovadas pelo financeiro</td>
@@ -54,7 +54,7 @@
         </tr>
         <tr class="">
           <th>Pagamento realizado</th>
-          <th class="table--highlight">ARS 0,00</th>
+          <th class="table--highlight">{{ currencySymbol }} 0,00</th>
         </tr>
         <tr class="">
           <td>Pagamento realizado pelo financeiro</td>
@@ -66,7 +66,14 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    declared: Number,
+    approved: Number,
+    received: Number,
+    currencySymbol: Number,
+  },
+}
 </script>
 
 <style lang="sass">
