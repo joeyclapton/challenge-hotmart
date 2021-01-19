@@ -54,10 +54,6 @@ export class Api {
     const api = this.url
     const response = await fetch(`${api}/expense/add`, {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
       body: extract,
     })
       .then(response => response.json())
