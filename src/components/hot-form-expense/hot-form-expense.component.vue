@@ -103,13 +103,18 @@ export default {
   methods: {
     onToggleForm() {
       this.showForm = !this.showForm
+      this._clearInputs()
     },
-    onSubmit(event) {
+    async onSubmit(event) {
       event.preventDefault()
       const api = new Api({
         url: 'https://api-front-end-challenge.buildstaging.com/api',
       })
-      api.addExpense(this.document)
+      await api.addExpense(this.document)
+      this._clearInputs()
+    },
+    _clearInputs() {
+      this.document = {}
     },
   },
 }
