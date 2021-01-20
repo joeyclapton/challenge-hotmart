@@ -93,9 +93,7 @@
         >
           Cancelar
         </button>
-        <button :disabled="false" type="submit" class="button button--save">
-          Salvar
-        </button>
+        <button type="submit" class="button button--save">Salvar</button>
       </footer>
     </form>
   </div>
@@ -133,6 +131,7 @@ export default {
       const isValidForm = this.hasEmptyValue()
 
       if (isValidForm) {
+        console.log('valid')
         const api = new Api({
           url: 'https://api-front-end-challenge.buildstaging.com/api',
         })
@@ -145,7 +144,11 @@ export default {
       this.document = {}
     },
     hasEmptyValue() {
-      return Object.values(this.document).every(value => value)
+      const isEmpty = !Object.values(this.document).some(
+        value => value !== null && value !== ''
+      )
+      console.log(isEmpty)
+      return isEmpty
     },
   },
 }

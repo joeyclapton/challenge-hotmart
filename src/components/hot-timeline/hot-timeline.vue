@@ -1,8 +1,14 @@
 <template>
   <div class="hot-timeline-component">
     <div class="container">
-      <div class="type" v-bind:class="['type--' + type]"></div>
-      <p>{{ date }}</p>
+      <div class="type" v-bind:class="['type--' + type]">
+        <i
+          v-bind:class="[
+            expenseTypeIcon ? 'fas fa-' + expenseTypeIcon : 'fas fa-users',
+          ]"
+        ></i>
+      </div>
+      <p class="type__date">{{ dateFormated }}</p>
     </div>
     <div class="container">
       <div class="action">
@@ -33,6 +39,7 @@
 </template>
 
 <script>
+import { DateFormat } from '../../services/date/date-format'
 export default {
   props: {
     type: String,
@@ -43,8 +50,14 @@ export default {
     email: String,
     currencyCode: String,
     expenseTypeCode: String,
+    expenseTypeIcon: String,
     amountSpent: Number,
     amountTotal: Number,
+  },
+  data() {
+    return {
+      dateFormated: new DateFormat({ date: this.date }).timeStampToDate(),
+    }
   },
   methods: {
     getTypeText(
@@ -71,14 +84,15 @@ export default {
     background-color: #ffffff
     border-radius: 6px
     display: flex
-    justify-content: space-between
-    height: 154px
+    min-height: 154px
     margin: 28px
     padding: 24px
 
     .container
+      margin: 0 36px
+      min-height: 68px
 
-      &__title
+      .container__title
         color: #d0d3d6
         font-size: 12px
         font-weight: bold
@@ -86,24 +100,33 @@ export default {
         margin-bottom: 6px
 
     .action
-      &__legend
+      .action__legend
         font-size: 20px
         font-weight: bold
         color: #545b64
 
     .type
+      align-items: center
+      display: flex
       border-radius: 50%
+      justify-content: center
       height: 60px
       width: 60px
 
+      &__date
+        color: #545b64
+        font-size: 14px
+        margin-top: 12px
+
       &--EXPENSE
         background-color: #e8f2fb
+        .fas
+          color: #0f68bd
 
-      &--ACCOUNTABILITY_SUBMITTED, &--ACCOUNTABILITY_CREATED
+      &--ACCOUNTABILITY_SUBMITTED, &--ACCOUNTABILITY_CREATED, &--EVALUATION
         background-color: #efebf9
-
-      &--EVALUATION
-        background-color: #f0f3f7
+        .fas
+          color: #C9BCF3
 
     .status
       background-color: #e7f2fd
@@ -113,6 +136,6 @@ export default {
       font-weight: bold
       padding: 6px 12px
 
-      &__label
+      .status__label
         font-size: 12px
 </style>

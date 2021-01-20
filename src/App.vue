@@ -10,7 +10,7 @@
       <div class="breadcrumbs"></div>
       <div class="quick-ops__wrapper" v-if="header && timeline && sidebar">
         <div class="refound-container">
-          <hot-refound-component
+          <hot-refound
             v-bind:id="header.id"
             v-bind:name="header.collaborator.name"
             v-bind:email="header.collaborator.email"
@@ -22,10 +22,10 @@
             "
             v-bind:cost-centers="header.costCenters"
             v-bind:date="header.accountabilityExtraInfo.eventDate"
-          ></hot-refound-component>
-          <hot-form-expense-component></hot-form-expense-component>
+          ></hot-refound>
+          <hot-form-expense></hot-form-expense>
 
-          <hot-timeline-component
+          <hot-timeline
             v-for="item in timeline.content"
             :key="item.id"
             v-bind:type="item.cardType"
@@ -36,14 +36,16 @@
             v-bind:amount-total="item.amountTotal"
             v-bind:amount-spent="item.amountSpent"
             v-bind:expense-type-code="item.expenseTypeCode"
+            v-bind:expense-type-icon="item.expenseTypeIcon"
+            v-bind:name="item.author ? item.author.name : ''"
           >
-          </hot-timeline-component>
+          </hot-timeline>
         </div>
         <section class="sidebar">
-          <hot-sidebar-component
+          <hot-sidebar
             status="Disponível"
             v-bind:content="sidebar.content"
-          ></hot-sidebar-component>
+          ></hot-sidebar>
         </section>
       </div>
     </section>
@@ -51,20 +53,22 @@
 </template>
 
 <script>
-import HotRefoundComponent from './components/hot-refound/hot-refound.component'
-import hotSidebarComponent from './components/hot-sidebar/hot-sidebar.component'
-import HotTimelineComponent from './components/hot-timeline/hot-timeline.component'
-import HotFormExpenseComponent from './components/hot-form-expense/hot-form-expense.component'
+import HotRefound from './components/hot-refound/hot-refound'
+import hotSidebar from './components/hot-sidebar/hot-sidebar'
+import HotTimeline from './components/hot-timeline/hot-timeline'
+import HotFormExpense from './components/hot-form-expense/hot-form-expense'
 
 import { Api } from './services/api/api.service'
+
+import './styles/responsive.sass'
 
 export default {
   name: 'App',
   components: {
-    HotRefoundComponent,
-    HotTimelineComponent,
-    hotSidebarComponent,
-    HotFormExpenseComponent,
+    HotRefound,
+    HotTimeline,
+    hotSidebar,
+    HotFormExpense,
   },
   data() {
     return {

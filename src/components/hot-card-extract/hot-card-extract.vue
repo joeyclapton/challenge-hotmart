@@ -3,7 +3,7 @@
     <header class="header">
       <p class="header__title">Saldo</p>
       <p class="header__value">
-        <span>{{ currencySymbol }} 0,00</span>
+        <span>{{ currencySymbol }} {{ balance }},00</span>
       </p>
     </header>
     <div class="divider"></div>
@@ -14,16 +14,21 @@
         </div>
         <div>
           <p class="cash__wrapper-label">Gastou</p>
-          <p class="cash__wrapper-value">{{ currencySymbol }} 0,00</p>
+          <p class="cash__wrapper-value">
+            {{ currencySymbol }} {{ returned }},00
+          </p>
         </div>
       </div>
+      <div class="divider divider--small"></div>
       <div class="cash__wrapper">
         <div class="cash__icon">
           <i class="fas fa-arrow-down"></i>
         </div>
         <div>
           <p class="cash__wrapper-label">Recebeu</p>
-          <p class="cash__wrapper-value">{{ currencySymbol }} 0,00</p>
+          <p class="cash__wrapper-value">
+            {{ currencySymbol }} {{ received }},00
+          </p>
         </div>
       </div>
     </div>
@@ -72,6 +77,8 @@ export default {
     approved: Number,
     received: Number,
     currencySymbol: Number,
+    balance: Number,
+    returned: Number,
   },
 }
 </script>
@@ -88,6 +95,11 @@ export default {
       height: 2px
       margin: 24px auto
       width: 80%
+
+      &--small
+        height: 40px
+        margin: 6px
+        width: 2px
 
     .cash
       display: flex
@@ -121,6 +133,7 @@ export default {
         font-size: 24px
         font-weight: bold
         text-align: center
+        margin-top: 12px
 
     .table
       &__title

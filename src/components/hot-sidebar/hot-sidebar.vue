@@ -1,24 +1,26 @@
 <template>
   <div class="hot-sidebar-component">
     <header class="header">
-      <hot-status-component v-bind:status="status"></hot-status-component>
+      <hot-status v-bind:status="status"></hot-status>
     </header>
     <div class="body">
       <div v-for="item in content" :key="item.id">
-        <hot-card-extract-component
+        <hot-card-extract
           v-bind:approved="item.approved"
           v-bind:declared="item.declared"
           v-bind:received="item.received"
+          v-bind:balance="item.balance"
+          v-bind:returned="item.returned"
           v-bind:currency-symbol="item.currency.symbol"
-        ></hot-card-extract-component>
+        ></hot-card-extract>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import HotStatusComponent from '../hot-status/hot-status.component'
-import HotCardExtractComponent from '../hot-card-extract/hot-card-extract.component'
+import HotStatus from '../hot-status/hot-status'
+import HotCardExtract from '../hot-card-extract/hot-card-extract'
 
 export default {
   props: {
@@ -26,8 +28,8 @@ export default {
     content: Array,
   },
   components: {
-    HotStatusComponent,
-    HotCardExtractComponent,
+    HotStatus,
+    HotCardExtract,
   },
 }
 </script>

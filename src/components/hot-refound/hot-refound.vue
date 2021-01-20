@@ -29,7 +29,7 @@
         </li>
         <li class="list__item">
           <span class="list__item-label">Data </span>
-          <span class="list__item-info">{{ date }}</span>
+          <span class="list__item-info">{{ dateFormated }}</span>
         </li>
         <li class="list__item">
           <span class="list__item-label">Quantidade </span>
@@ -54,6 +54,8 @@
 </template>
 
 <script>
+import { DateFormat } from '../../services/date/date-format'
+
 export default {
   props: {
     id: Number,
@@ -66,6 +68,11 @@ export default {
     date: String,
     amountOfPeople: String,
     flag: String,
+  },
+  data() {
+    return {
+      dateFormated: new DateFormat({ date: this.date }).timeStampToDate(),
+    }
   },
 }
 </script>
