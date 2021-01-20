@@ -95,6 +95,10 @@ export default {
 </script>
 
 <style lang="sass">
+
+@import "styles/_variables.sass";
+@import "styles/loader.sass";
+
 *
   box-sizing: border-box
   font-family: 'Nunito Sans', sans-serif
@@ -104,40 +108,6 @@ export default {
 html,
 body
   height: 100%
-
-.loader__container
-  position: absolute
-  left: 220px
-  right: 0px
-  top: 48px
-  bottom: 0
-  display: flex
-
-.loader
-  width: 175px
-  height: 80px
-  display: block
-  margin: auto
-  background-image: radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, #FFF 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), linear-gradient(#FFF 50px, transparent 0)
-  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px
-  background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px
-  background-repeat: no-repeat
-  position: relative
-  box-sizing: border-box
-
-  &::after
-    content: ''
-    left: 68px
-    right: 0
-    bottom: 20px
-    position: absolute
-    width: 36px
-    height: 36px
-    border-radius: 50%
-    border: 5px solid transparent
-    border-color: #FF3D00 transparent
-    box-sizing: border-box
-    animation: rotation 1s linear infinite
 
 @keyframes rotation
   0%
