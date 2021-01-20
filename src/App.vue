@@ -1,7 +1,7 @@
 <template>
   <div class="topbar"></div>
   <main class="main">
-    <div class="loader__container" v-if="!(header && timeline && sidebar)">
+    <div class="loader__container" v-if="loading">
       <span class="loader"></span>
     </div>
 
@@ -75,6 +75,7 @@ export default {
       header: null,
       timeline: null,
       sidebar: null,
+      loading: true,
     }
   },
   mounted() {
@@ -89,6 +90,7 @@ export default {
       this.header = await api._getHeader()
       this.timeline = await api._getTimeline()
       this.sidebar = await api._getSidebar()
+      this.loading = false
     },
   },
 }
