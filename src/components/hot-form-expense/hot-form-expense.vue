@@ -155,6 +155,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../styles/_variables.sass"
+
 .hot-form-expense-component
     margin: 28px
 

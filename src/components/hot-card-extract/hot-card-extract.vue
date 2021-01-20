@@ -84,6 +84,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../styles/_variables.sass"
+
 .hot-card-extract-component
     border: solid 1px #f0f3f7
     border-radius: 6px

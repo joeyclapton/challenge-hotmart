@@ -78,6 +78,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../styles/_variables.sass"
+
 .hot-refound-component
   background-image: linear-gradient(to right, #00d7ce 3%, #00c5fc)
   border-radius: 12px

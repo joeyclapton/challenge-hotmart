@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../styles/_variables.sass"
+
 .hot-status-component
 
     .status

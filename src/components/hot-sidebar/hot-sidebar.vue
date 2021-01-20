@@ -35,6 +35,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../styles/_variables.sass"
+
 .hot-sidebar-component
     padding: 22px
 </style>

@@ -79,6 +79,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../../styles/_variables.sass"
+
 .hot-timeline-component
     align-items: center
     background-color: #ffffff
