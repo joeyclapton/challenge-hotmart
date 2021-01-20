@@ -8,7 +8,7 @@
     <section class="menu"></section>
     <section class="quick-ops">
       <div class="breadcrumbs"></div>
-      <div class="quick-ops__wrapper" v-if="header && timeline && sidebar">
+      <div class="quick-ops__wrapper" v-if="loading">
         <div class="refound-container">
           <hot-refound
             v-bind:id="header.id"
