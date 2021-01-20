@@ -1,13 +1,16 @@
 <template>
   <div class="topbar"></div>
   <main class="main">
+    <div class="loader__container" v-if="!(header && timeline && sidebar)">
+      <span class="loader"></span>
+    </div>
+
     <section class="menu"></section>
     <section class="quick-ops">
       <div class="breadcrumbs"></div>
-      <div class="quick-ops__wrapper">
+      <div class="quick-ops__wrapper" v-if="header && timeline && sidebar">
         <div class="refound-container">
           <hot-refound-component
-            v-if="header"
             v-bind:id="header.id"
             v-bind:name="header.collaborator.name"
             v-bind:email="header.collaborator.email"
@@ -22,23 +25,21 @@
           ></hot-refound-component>
           <hot-form-expense-component></hot-form-expense-component>
 
-          <div v-if="timeline">
-            <hot-timeline-component
-              v-for="item in timeline.content"
-              :key="item.id"
-              v-bind:type="item.cardType"
-              v-bind:notes="item.notes"
-              v-bind:date="item.cardDate"
-              v-bind:status="item.status"
-              v-bind:currency-code="item.currencyCode"
-              v-bind:amount-total="item.amountTotal"
-              v-bind:amount-spent="item.amountSpent"
-              v-bind:expense-type-code="item.expenseTypeCode"
-            >
-            </hot-timeline-component>
-          </div>
+          <hot-timeline-component
+            v-for="item in timeline.content"
+            :key="item.id"
+            v-bind:type="item.cardType"
+            v-bind:notes="item.notes"
+            v-bind:date="item.cardDate"
+            v-bind:status="item.status"
+            v-bind:currency-code="item.currencyCode"
+            v-bind:amount-total="item.amountTotal"
+            v-bind:amount-spent="item.amountSpent"
+            v-bind:expense-type-code="item.expenseTypeCode"
+          >
+          </hot-timeline-component>
         </div>
-        <section v-if="sidebar" class="sidebar">
+        <section class="sidebar">
           <hot-sidebar-component
             status="Disponível"
             v-bind:content="sidebar.content"
@@ -100,8 +101,49 @@ html,
 body
   height: 100%
 
+.loader__container
+  position: absolute
+  left: 220px
+  right: 0px
+  top: 48px
+  bottom: 0
+  display: flex
+
+.loader
+  width: 175px
+  height: 80px
+  display: block
+  margin: auto
+  background-image: radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), radial-gradient(circle 50px at 50px 50px, #FFF 100%, transparent 0), radial-gradient(circle 25px at 25px 25px, #FFF 100%, transparent 0), linear-gradient(#FFF 50px, transparent 0)
+  background-size: 50px 50px, 100px 76px, 50px 50px, 120px 40px
+  background-position: 0px 30px, 37px 0px, 122px 30px, 25px 40px
+  background-repeat: no-repeat
+  position: relative
+  box-sizing: border-box
+
+  &::after
+    content: ''
+    left: 68px
+    right: 0
+    bottom: 20px
+    position: absolute
+    width: 36px
+    height: 36px
+    border-radius: 50%
+    border: 5px solid transparent
+    border-color: #FF3D00 transparent
+    box-sizing: border-box
+    animation: rotation 1s linear infinite
+
+@keyframes rotation
+  0%
+    transform: rotate(0deg)
+
+  100%
+    transform: rotate(360deg)
+
 #app
-  overflow: hidden
+  height: 100%
 
   .topbar
     background-color: #053d4e
@@ -110,6 +152,7 @@ body
 
   .main
     display: flex
+    min-height: 100%
 
   .menu
     background-color: #053d4e
