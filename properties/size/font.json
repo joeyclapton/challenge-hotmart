@@ -1,6 +1,6 @@
 {
   "font": {
-    "xm": { "value": "12px" },
+    "xs": { "value": "12px" },
     "sm": { "value": "14px" },
     "md": { "value": "16px" },
     "lg": { "value": "20px" }

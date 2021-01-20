@@ -183,7 +183,7 @@ export default {
         border-width: 1px
         border-style: solid
         cursor: pointer
-        font-size: 16px
+        font-size: $font-md
         outline: 0
         padding: 6px 12px
         transform: scale(1)
@@ -251,10 +251,10 @@ export default {
 
         &__upload-legend
           color: #848a91
-          font-size: 12px
+          font-size: $font-xs
 
         &__title
-            font-size: 20px
+            font-size: $font-lg
             line-height: 1.5
             color: #353a40
             padding: 36px
@@ -298,5 +298,5 @@ export default {
 
           &-title
             color: #343a42
-            font-size: 16px
+            font-size: $font-md
 </style>

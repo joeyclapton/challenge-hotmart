@@ -115,7 +115,7 @@ export default {
 
         .fas
           color: #d0d3d6
-          font-size: 12px
+          font-size: $font-xs
 
       &__wrapper
         align-items: center
@@ -162,5 +162,5 @@ export default {
 
         td
           color: #9ea4ac
-          font-size: 12px
+          font-size: $font-xs
 </style>

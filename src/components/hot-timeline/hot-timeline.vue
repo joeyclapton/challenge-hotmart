@@ -96,14 +96,14 @@ export default {
 
       .container__title
         color: #d0d3d6
-        font-size: 12px
+        font-size: $font-xs
         font-weight: bold
         text-transform: uppercase
         margin-bottom: 6px
 
     .action
       .action__legend
-        font-size: 20px
+        font-size: $font-lg
         font-weight: bold
         color: #545b64
 
@@ -139,5 +139,5 @@ export default {
       padding: 6px 12px
 
       .status__label
-        font-size: 12px
+        font-size: $font-xs
 </style>

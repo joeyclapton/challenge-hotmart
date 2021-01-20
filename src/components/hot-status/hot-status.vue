@@ -34,7 +34,7 @@ export default {
 
         &__legend
             color: #006e2f
-            font-size: 16px
+            font-size: $font-md
             margin: 0
 
         &__state

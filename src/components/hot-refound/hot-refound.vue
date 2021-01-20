@@ -100,7 +100,7 @@ export default {
 
     &__title
       color: #ffffff
-      font-size: 20px
+      font-size: $font-lg
 
   .divider
     background-color: #ffffff
