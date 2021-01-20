@@ -1,0 +1,7 @@
+{
+  "media": {
+    "sm": { "value": "765px" },
+    "md": { "value": "1100px" },
+    "lg": { "value": "1360px" }
+  }
+}

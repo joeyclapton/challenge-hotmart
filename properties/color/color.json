@@ -1,0 +1,9 @@
+{
+  "color": {
+    "tealish-green": { "value": "#0fc75e" },
+    "pale-blue": { "value": "#e7f2fd" },
+    "nice-blue": { "value": "#0f68bd" },
+    "slate-grey": { "value": "#5f6772" },
+    "cool-grey": { "value": "#9ea4ac" }
+  }
+}
