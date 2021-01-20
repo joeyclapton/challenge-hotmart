@@ -47,8 +47,8 @@ export class Api {
 
   /**
    * @private
-   * @description - retorna informações da sidebar
-   * @returns {Object} - informações da sidebar
+   * @description - adiciona nova despesa
+   * @returns {Object} - dados a serem salvos
    */
   async addExpense(extract = {}) {
     const api = this.url
@@ -59,7 +59,6 @@ export class Api {
       .then(response => response.json())
       .catch(err => console.error('Erro: ', err))
 
-    console.log(response)
     return response
   }
 }

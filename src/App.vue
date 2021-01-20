@@ -24,7 +24,6 @@
             v-bind:date="header.accountabilityExtraInfo.eventDate"
           ></hot-refound>
           <hot-form-expense></hot-form-expense>
-
           <hot-timeline
             v-for="item in timeline.content"
             :key="item.id"
