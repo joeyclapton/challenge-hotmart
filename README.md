@@ -1,5 +1,7 @@
 
-## Configuração do projeto
+### Configurações do projeto
+-------------------------------------
+### Instalar dependências
 ```
 yarn install
 ```
