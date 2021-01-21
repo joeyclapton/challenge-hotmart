@@ -84,6 +84,7 @@
               />
             </div>
           </div>
+          <p class="msg-error">Campo obrigatório*</p>
         </div>
       </div>
       <footer class="footer">
@@ -93,7 +94,13 @@
         >
           Cancelar
         </button>
-        <button type="submit" class="button button--save">Salvar</button>
+        <button
+          :disabled="!hasEmptyValue()"
+          type="submit"
+          class="button button--save"
+        >
+          Salvar
+        </button>
       </footer>
     </form>
   </div>
@@ -117,7 +124,7 @@ export default {
         amountSpent: '',
         amountTotal: '',
         notes: '',
-        resourceUrl: '',
+        resourceUrl: '/',
         cardDate: '',
       },
     }
@@ -131,7 +138,6 @@ export default {
       const isValidForm = this.hasEmptyValue()
 
       if (isValidForm) {
-        console.log('valid')
         const api = new Api({
           url: 'https://api-front-end-challenge.buildstaging.com/api',
         })
@@ -144,11 +150,7 @@ export default {
       this.document = {}
     },
     hasEmptyValue() {
-      const isEmpty = !Object.values(this.document).some(
-        value => value !== null && value !== ''
-      )
-      console.log(isEmpty)
-      return isEmpty
+      return Object.values(this.document).every(value => value)
     },
   },
 }
@@ -177,6 +179,9 @@ export default {
       font-weight: bold
       margin: 6px 0
 
+
+    .msg-error
+      margin-left: 16px
 
     .button
         border-radius: 6px
