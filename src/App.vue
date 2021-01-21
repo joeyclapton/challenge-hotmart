@@ -104,8 +104,8 @@ export default {
 
 <style lang="sass">
 
-@import "styles/_variables.sass";
-@import "styles/loader.sass";
+@import "styles/_variables.sass"
+@import "styles/loader.sass"
 
 *
   box-sizing: border-box
