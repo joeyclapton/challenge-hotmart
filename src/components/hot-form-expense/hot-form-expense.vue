@@ -148,6 +148,7 @@ export default {
     },
     clearInputs() {
       this.document = {}
+      this.hasEmptyValue();
     },
     hasEmptyValue() {
       return Object.values(this.document).every(value => value)
