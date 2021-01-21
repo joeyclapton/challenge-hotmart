@@ -140,4 +140,37 @@ export default {
 
         &--reset-margin
           margin: 0
+
+@media screen and(max-width: $media-sm)
+  .hot-refound-component
+    padding: 16px
+
+    .header
+
+      .fa-edit
+          right: 0
+          top: 0
+
+    .list__container
+      flex-direction: column
+
+      .list
+          width: 100%
+
+          .list__item
+              margin: 12px
+
+          .list__item-info
+              margin-left: 6px
+
+          .list__item-label
+              min-width: 0
+
+      .divider
+          width: 100%
+          height: 1px
+          margin: 16px 0
+
+      .list__item-label
+          text-align: left
 </style>

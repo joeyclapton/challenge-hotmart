@@ -140,4 +140,12 @@ export default {
 
       .status__label
         font-size: $font-xs
+
+@media screen and(max-width: $media-sm)
+  .hot-timeline-component
+    align-items: start
+    flex-direction: column
+
+    .container
+        margin: 16px 0
 </style>

@@ -299,4 +299,16 @@ export default {
           &-title
             color: #343a42
             font-size: $font-md
+
+@media screen and(max-width: $media-sm)
+  .hot-form-expense-component
+    .form__wrapper
+        flex-direction: column
+
+        .form__inputs, .form__upload
+            margin: 0
+            width: 100%
+
+        .form__input-container
+            display: block
 </style>

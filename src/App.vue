@@ -59,8 +59,6 @@ import HotFormExpense from './components/hot-form-expense/hot-form-expense'
 
 import { Api } from './services/api/api.service'
 
-import './styles/responsive.sass'
-
 export default {
   name: 'App',
   components: {
@@ -125,6 +123,9 @@ body
     height: 48px
     width: 100%
 
+    @media screen and(max-width: $media-lg)
+      display: none
+
   .main
     display: flex
     min-height: 100%
@@ -132,24 +133,42 @@ body
   .menu
     background-color: #053d4e
     width: 220px
+    @media screen and(max-width: $media-lg)
+      display: none
 
   .quick-ops
     background-color: #f4f6fa
     width: calc(100% - 220px)
+    @media screen and(max-width: $media-lg)
+      margin-top: 48px
+      width: 100%
 
   .quick-ops__wrapper
     display: flex
+    @media screen and(max-width: $media-lg)
+      width: 100%
+
+    @media screen and(max-width: $media-md)
+      flex-direction: column
 
   .refound-container
     width: calc(100% - 392px)
+    @media screen and(max-width: $media-md)
+      width: 100%
 
   .breadcrumbs
     background-color: #f0f3f7
     height: 48px
     width: 100%
+    @media screen and(max-width: $media-lg)
+      position: fixed
+      top: 0
+      z-index: 1
 
   .sidebar
     background-color: #ffffff
     width: 392px
     transition: width 0.4s
+    @media screen and(max-width: $media-md)
+      width: 100%
 </style>
