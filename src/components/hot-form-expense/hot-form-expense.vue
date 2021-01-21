@@ -271,7 +271,7 @@ export default {
         &__inputs
           display: flex
           flex-direction: column
-          padding: 0 48px
+          padding: 0 28px
           margin-bottom: 48px
           width: 50%
 
