@@ -7,7 +7,9 @@
 
     <section class="menu"></section>
     <section class="quick-ops">
-      <div class="breadcrumbs"></div>
+      <div class="breadcrumbs">
+        <hot-breadcrumb v-bind:breadcrumbs="breadcrumbs"></hot-breadcrumb>
+      </div>
       <div class="quick-ops__wrapper" v-if="header && sidebar && timeline">
         <div class="refound-container">
           <hot-refound
@@ -56,6 +58,7 @@ import HotRefound from './components/hot-refound/hot-refound'
 import hotSidebar from './components/hot-sidebar/hot-sidebar'
 import HotTimeline from './components/hot-timeline/hot-timeline'
 import HotFormExpense from './components/hot-form-expense/hot-form-expense'
+import HotBreadcrumb from './components/hot-breadcrumb/hot-breadcrumb'
 
 import { Api } from './services/api/api.service'
 
@@ -66,6 +69,7 @@ export default {
     HotTimeline,
     hotSidebar,
     HotFormExpense,
+    HotBreadcrumb,
   },
   data() {
     return {
@@ -73,6 +77,11 @@ export default {
       timeline: null,
       sidebar: null,
       loading: true,
+      breadcrumbs: [
+        { id: 0, label: 'Dashboard' },
+        { id: 1, label: 'QuickOps' },
+        { id: 2, label: 'Current' },
+      ],
     }
   },
   mounted() {
@@ -157,7 +166,10 @@ body
       width: 100%
 
   .breadcrumbs
+    align-items: center
     background-color: #f0f3f7
+    display: flex
+    padding: 0 32px
     height: 48px
     width: 100%
     @media screen and(max-width: $media-lg)
