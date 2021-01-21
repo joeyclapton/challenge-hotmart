@@ -29,10 +29,10 @@
       <p class="container__title">Observação</p>
       <p>{{ notes }}</p>
     </div>
-    <div class="container" v-if="status">
+    <div class="container container--status" v-if="status">
       <p class="container__title">Status</p>
       <div class="status">
-        <p class="status__label">{{ status }}</p>
+        <p class="status__label">{{ capitalizeString(status) }}</p>
       </div>
     </div>
   </div>
@@ -74,6 +74,11 @@ export default {
 
       return descriptions[type]
     },
+    capitalizeString(string) {
+      if (!string) return
+      const capitalized = string.charAt(0) + string.substring(1).toLowerCase()
+      return capitalized
+    },
   },
 }
 </script>
@@ -93,6 +98,13 @@ export default {
     .container
       margin: 0 36px
       min-height: 68px
+      width: -webkit-fill-available
+
+      &:first-child
+        width: fit-content
+
+      &--status
+        width: fit-content
 
       .container__title
         color: #d0d3d6
@@ -137,6 +149,7 @@ export default {
       color: #5f6772
       font-weight: bold
       padding: 6px 12px
+      max-width: fit-content
 
       .status__label
         font-size: $font-xs
